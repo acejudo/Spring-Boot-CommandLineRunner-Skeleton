@@ -49,6 +49,7 @@
 			    <enabled>true</enabled>
 			</releases>
     		</repository>
+		https://repo.spring.io/snapshot
         <!-- fix missing `commons-numbers-core:1.0-SNAPSHOT` on Travis CI
         -->
     	</repositories>
@@ -70,10 +71,7 @@
 	</pluginRepositories>
 	<build>
 		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
+			
 		</plugins>
 	</build>
 
