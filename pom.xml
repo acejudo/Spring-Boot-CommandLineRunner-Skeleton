@@ -38,12 +38,36 @@
 	</dependencies>
 
 	<repositories>
-		<repository>
-		    <id>repository.spring.release</id>
-		    <name>Spring GA Repository</name>
-		    <url>http://repo.spring.io/release</url>
-		</repository>
+		 <repository>
+			<id>apache-snapshots-group</id>
+			<name>Apache snapshots group repository</name>
+			<url>https://repository.apache.org/content/groups/snapshots</url>
+			<snapshots>
+			    <enabled>true</enabled>
+			</snapshots>
+			<releases>
+			    <enabled>true</enabled>
+			</releases>
+    		</repository>
+        <!-- fix missing `commons-numbers-core:1.0-SNAPSHOT` on Travis CI
+        -->
     	</repositories>
+	
+	<pluginRepositories>
+    		<pluginRepository>
+		<id>apache-snapshots-group</id>
+			<name>Apache snapshots group repository</name>
+			<url>https://repository.apache.org/content/groups/snapshots</url>
+			<snapshots>
+			    <enabled>true</enabled>
+			</snapshots>
+			<releases>
+			    <enabled>true</enabled>
+			</releases>
+    		</pluginRepository>
+        <!-- fix missing `commons-numbers-core:1.0-SNAPSHOT` on Travis CI
+        -->
+	</pluginRepositories>
 	<build>
 		<plugins>
 			<plugin>
