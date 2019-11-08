@@ -4,8 +4,3 @@ jdk:
   - oraclejdk8
 before_install:
   - chmod +x mvnw
-install:
-    - mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
-script: 
-   - sudo mvn clean package
-   - sudo mvn install
