@@ -10,3 +10,9 @@
 
 # Test app
   mvn test
+  
+# Package with profile
+  mvn clean package
+  mvn clean package -P dev
+  mvn clean package -P pro
+
