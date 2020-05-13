@@ -15,4 +15,14 @@
   mvn clean package
   mvn clean package -P dev
   mvn clean package -P pro
+  
+# Docker build
+  docker build --tag myapp .
+
+# Run image as a containter
+  docker run --publish 8000:8080 --detach --name containerName myapp
+
+# View logs
+  docker logs containerName
+
 
