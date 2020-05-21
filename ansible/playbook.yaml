@@ -1,0 +1,48 @@
+---
+
+- name: This is a playbook example 
+  hosts: localhost
+  vars:
+    java_version: "java-11-openjdk-devel"
+    hello_world_dest: "/opt/ansible/share/test.txt"
+    repo_dest: "/opt/ansible/share/SpringBoot"
+    github_url: "https://github.com/acejudo/Spring-Boot-CommandLineRunner-Skeleton.git"
+    github_branch: "master"
+    mvn_command: "clean package -P pro"
+    jar_version: "/target/commandLineRunner-0.0.1-SNAPSHOT-spring-boot.jar"
+
+  tasks:
+    - name: Create a file called 'test.txt' with the content 'hello world'.
+      copy:
+        content: hello world
+        dest: "{{ hello_world_dest }}"
+    
+    - name: provides ifconfig
+      yum: name=net-tools state=latest
+    
+    - name: Ensure repo is up-to-date
+      git:
+        repo: "{{ github_url}}"
+        version: "{{ github_branch }}"
+        dest: "{{ repo_dest }}"
+        accept_hostkey: yes
+    
+    - name: Install java
+      yum: name="{{ java_version }}"
+    
+    - name: Install maven
+      yum: name=maven state=latest
+    
+    - name: "mvn {{ mvn_command }}"
+      shell: |
+        cd "{{ repo_dest }}"
+        mvn {{ mvn_command }}
+   
+    - name: Run jar
+      shell: |
+        java -jar {{ repo_dest }}{{ jar_version }}
+      register: output
+
+    - debug: var=output.stdout_lines
+    
+
