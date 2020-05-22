@@ -1,0 +1,6 @@
+---
+# tasks file for hello_world
+- name: Create a file called 'test.txt' with the content 'hello world'.
+  copy:
+    content: hello world
+    dest: "{{ hello_world_dest }}"

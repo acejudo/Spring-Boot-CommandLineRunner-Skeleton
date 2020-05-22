@@ -1,0 +1,4 @@
+---
+# tasks file for ifconfig
+- name: provides ifconfig
+  yum: name=net-tools state=latest

@@ -1,0 +1,15 @@
+---
+- hosts: localhost
+  vars:
+    java_version: "java-11-openjdk-devel"
+    hello_world_dest: "/opt/ansible/share/test.txt"
+    repo_dest: "/opt/ansible/share/SpringBoot"
+    github_url: "https://github.com/acejudo/Spring-Boot-CommandLineRunner-Skeleton.git"
+    github_branch: "master"
+    mvn_command: "clean package -P dev"
+    jar_version: "/target/commandLineRunner-0.0.1-SNAPSHOT-spring-boot.jar"
+  roles:
+     - hello_world
+     - ifconfig
+     - java_maven
+     - build
